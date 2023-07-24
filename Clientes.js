@@ -21,5 +21,13 @@ const clientes=[{
   Nombre:"Hernandes",
   multiplicador:161.25,
   fecha:"26/7",
+},
+{
+  id:1,
+  lugar:"ventana",
+  cantidad:2,
+  Nombre:"Rosetti",
+  multiplicador:210,
+  fecha:"15/8",
 }
 ]

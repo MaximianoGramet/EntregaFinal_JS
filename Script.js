@@ -1,6 +1,6 @@
 function Inicio(){
 alert("Buenos días y bienvenidos");
-let menu=prompt("¿Qué es lo que necesita?\n 1_Reservación\n 2_Lista de Clientes");
+let menu=prompt("¿Qué es lo que necesita?\n 1_Reservación\n 2_Busqueda de Cliente");
 
 switch(menu){
   case '1':
@@ -122,6 +122,27 @@ switch(menu){
   }
   break;
   case '2':
+    //Usado por empleados para chequear detalles de resevación WIP
+    alert("Usted selecciono la busqueda de cliente");
+    let busqueda=prompt("Ingrese el ID o Nombre del cliente a buscar");
+    let resulado = clientes.filter((el)=>el.id==busqueda);
+    if(resulado==undefined){
+      resulado = clientes.filter((el)=>el.Nombre==busqueda);
+    }
+    if(resulado==undefined){
+      alert("No hubo resultados a la busqueda de "+busqueda);
+    }else{
+      alert("Se encontro el/los siguiente/s resultado/s");
+
+      console.log(resulado)
+      let i=0;
+      resulado.forEach(element =>  {
+
+        alert("Nombre:"+resulado[i].Nombre+"\nUbicación:"+resulado[i].lugar+"\nCantidad:"+resulado[i].cantidad+"\nFecha:"+resulado[i].fecha);
+        i=+1;
+      });
+    }
+    
 
   break;
   default:
