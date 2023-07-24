@@ -16,7 +16,7 @@ const clientes=[{
 },
 {
   id:2,
-  lugar:"donde haya lugar",
+  lugar:"donde disponible",
   cantidad:3,
   Nombre:"Hernandes",
   multiplicador:161.25,
@@ -29,5 +29,37 @@ const clientes=[{
   Nombre:"Rosetti",
   multiplicador:210,
   fecha:"15/8",
+},
+{
+  id:3,
+  lugar:"Entrada",
+  cantidad:7,
+  Nombre:"Gonzales",
+  multiplicador:211.5,
+  fecha:"27/8",
+},
+{
+  id:4,
+  lugar:"Escenario",
+  cantidad:5,
+  Nombre:"Escaloni",
+  multiplicador:270,
+  fecha:"29/10",
+},
+{
+  id:0,
+  lugar:"donde disponible",
+  cantidad:1,
+  Nombre:"Gramet",
+  multiplicador:153.75,
+  fecha:"27/8",
+},
+{
+  id:0,
+  lugar:"Escenario",
+  cantidad:8,
+  Nombre:"Gramet",
+  multiplicador:288,
+  fecha:"27/8",
 }
 ]
