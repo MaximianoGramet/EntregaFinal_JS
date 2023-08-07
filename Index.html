@@ -7,9 +7,77 @@
 </head>
 <body>
   <h1>Glyfada Restaurante</h1>
-  <h2>Bienvenido</h2>
+
+  <div class="inicio">
+    <label id="comienzo">¡Bienvenido!</label>
+    <button id="cambiarUsuario">Cambiar Usuario</button>
+  </div>
+  <div class="registro">
+    <input type="text" id="nuevoUsuario" placeholder="Ingrese un nuevo nombre de usuario" hidden>
+    <button id="guardarUsuario" hidden>Guardar</button>
+  </div>
+ 
+  <div class="botones">
+    <button id="nuevaReservacionBtn">Nueva Reservación</button>
+  </div>
+
+
+  <!-- reservaciones -->
+  <div id="nueva_reservacion" style="display: none;" >
+    <div id="formularioNuevaReservacion"></div>
+    <label for="local">Local:</label>
+    <select id="local">
+      <option value="Buenos Aires, La Recoleta">Buenos Aires, La Recoleta</option>
+      <option value="Ciudad de Mendoza">Ciudad de Mendoza</option>
+      <option value="Misiones, Puerto Iguazú">Misiones, Puerto Iguazú</option>
+    </select><br>
+
+    <label for="cantidad">Cantidad de personas (max 8):</label>
+    <input type="number" id="cantidad" min="1" max="8"><br>
+
+    <label for="preferencia">Preferencia de asiento:</label>
+    <select id="preferencia">
+      <option value="Ventana">Ventana</option>
+      <option value="Entrada">Entrada</option>
+      <option value="Escenario">Escenario</option>
+      <option value="Donde haya lugar disponible">Donde haya lugar disponible</option>
+    </select><br>
+
+    <label for="fecha">Fecha (Día/Mes):</label>
+    <input type="text" id="fecha"><br>
+
+    <label for="celiaco">¿Requieren menú celíaco? (y/n):</label>
+    <input type="text" id="celiaco"><br>
+
+    <button id="crearReservacionBtn">Crear Reservación</button>
+  </div>
+</div>
+
+
+  <section>
+    <h4>Tus reservaciones:</h4>
+    <table id="tablaReservaciones">
+      <thead>
+        <tr>
+          <th>Local</th>
+          <th>Lugar</th>
+          <th>Cantidad</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+<!-- Fin reservaciones -->
+
+
+
+
+
   <script src="./Clientes.js"></script>
   <script src="./Script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
   <button onclick="Inicio()">Click Aquí</button>
 </body>
 </html>

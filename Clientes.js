@@ -5,6 +5,7 @@ const clientes=[{
   Nombre:"Gramet",
   multiplicador:270,
   fecha:"31/7",
+  local: "Buenos Aires, La Recoleta"
 },
 {
   id:1,
@@ -13,6 +14,7 @@ const clientes=[{
   Nombre:"Rosetti",
   multiplicador:210,
   fecha:"8/8",
+  local: "Ciudad de Mendoza"
 },
 {
   id:2,
@@ -21,6 +23,7 @@ const clientes=[{
   Nombre:"Hernandes",
   multiplicador:161.25,
   fecha:"26/7",
+  local: "Misiones, Puerto Iguazú"
 },
 {
   id:1,
@@ -29,6 +32,7 @@ const clientes=[{
   Nombre:"Rosetti",
   multiplicador:210,
   fecha:"15/8",
+  local: "Buenos Aires, La Recoleta"
 },
 {
   id:3,
@@ -37,6 +41,7 @@ const clientes=[{
   Nombre:"Gonzales",
   multiplicador:211.5,
   fecha:"27/8",
+  local: "Ciudad de Mendoza"
 },
 {
   id:4,
@@ -45,6 +50,7 @@ const clientes=[{
   Nombre:"Escaloni",
   multiplicador:270,
   fecha:"29/10",
+  local: "Misiones, Puerto Iguazú"
 },
 {
   id:0,
@@ -53,13 +59,15 @@ const clientes=[{
   Nombre:"Gramet",
   multiplicador:153.75,
   fecha:"27/8",
+  local: "Buenos Aires, La Recoleta"
 },
 {
   id:0,
   lugar:"Escenario",
   cantidad:8,
-  Nombre:"Gramet",
+  Nombre:"Gramet",  
   multiplicador:288,
   fecha:"27/8",
+  local: "Ciudad de Mendoza"
 }
 ]
