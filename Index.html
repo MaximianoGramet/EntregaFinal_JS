@@ -3,55 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PreEntrega1 || Restaurante</title>
+  <title>PreEntrega3 || Restaurante</title>
+  <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"/>
 </head>
-<body>
+<body class="container">
   <h1>Glyfada Restaurante</h1>
 
   <div class="inicio">
     <label id="comienzo">¡Bienvenido!</label>
-    <button id="cambiarUsuario">Cambiar Usuario</button>
+    <button class="btn btn-primary" id="cambiarUsuario">Cambiar Usuario</button>
   </div>
-  <div class="registro">
+  <div class="registro  mt-3">
     <input type="text" id="nuevoUsuario" placeholder="Ingrese un nuevo nombre de usuario" hidden>
-    <button id="guardarUsuario" hidden>Guardar</button>
+    <button class="btn btn-primary" id="guardarUsuario" hidden>Guardar</button>
   </div>
  
   <div class="botones">
-    <button id="nuevaReservacionBtn">Nueva Reservación</button>
+    <button  class="btn btn-primary mt-3" id="nuevaReservacionBtn">Nueva Reservación</button>
   </div>
 
 
   <!-- reservaciones -->
-  <div id="nueva_reservacion" style="display: none;" >
-    <div id="formularioNuevaReservacion"></div>
-    <label for="local">Local:</label>
-    <select id="local">
-      <option value="Buenos Aires, La Recoleta">Buenos Aires, La Recoleta</option>
-      <option value="Ciudad de Mendoza">Ciudad de Mendoza</option>
-      <option value="Misiones, Puerto Iguazú">Misiones, Puerto Iguazú</option>
-    </select><br>
+    <div id="nueva_reservacion" style="display: none;" >
+      <div id="formularioNuevaReservacion"></div>
+      <label for="local">Local:</label>
+      <select id="local">
+        <option value="Buenos Aires, La Recoleta">Buenos Aires, La Recoleta</option>
+        <option value="Ciudad de Mendoza">Ciudad de Mendoza</option>
+        <option value="Misiones, Puerto Iguazú">Misiones, Puerto Iguazú</option>
+      </select><br>
 
-    <label for="cantidad">Cantidad de personas (max 8):</label>
-    <input type="number" id="cantidad" min="1" max="8"><br>
+      <label for="cantidad">Cantidad de personas (max 8):</label>
+      <input type="number" id="cantidad" min="1" max="8"><br>
 
-    <label for="preferencia">Preferencia de asiento:</label>
-    <select id="preferencia">
-      <option value="Ventana">Ventana</option>
-      <option value="Entrada">Entrada</option>
-      <option value="Escenario">Escenario</option>
-      <option value="Donde haya lugar disponible">Donde haya lugar disponible</option>
-    </select><br>
+      <label for="preferencia">Preferencia de asiento:</label>
+      <select id="preferencia">
+        <option value="Ventana">Ventana</option>
+        <option value="Entrada">Entrada</option>
+        <option value="Escenario">Escenario</option>
+        <option value="Donde haya lugar disponible">Donde haya lugar disponible</option>
+      </select><br>
 
-    <label for="fecha">Fecha (Día/Mes):</label>
-    <input type="text" id="fecha"><br>
+      <label for="fecha">Fecha (Día/Mes):</label>
+      <input type="text" id="fecha"><br>
 
-    <label for="celiaco">¿Requieren menú celíaco? (si/no):</label>
-    <input type="text" id="celiaco"><br>
+      <label for="celiaco">¿Requieren menú celíaco? (si/no):</label>
+      <input type="text" id="celiaco"><br>
 
-    <button id="crearReservacionBtn">Crear Reservación</button>
-  </div>
-</div>
+      <button id="crearReservacionBtn">Crear Reservación</button>
+    </div>
+  
 
 
   <section>
