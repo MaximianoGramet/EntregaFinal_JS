@@ -46,7 +46,7 @@
     <label for="fecha">Fecha (Día/Mes):</label>
     <input type="text" id="fecha"><br>
 
-    <label for="celiaco">¿Requieren menú celíaco? (y/n):</label>
+    <label for="celiaco">¿Requieren menú celíaco? (si/no):</label>
     <input type="text" id="celiaco"><br>
 
     <button id="crearReservacionBtn">Crear Reservación</button>
@@ -56,7 +56,7 @@
 
   <section>
     <h4>Tus reservaciones:</h4>
-    <table id="tablaReservaciones">
+    <table id="tablaReservaciones" class="table table-striped">
       <thead>
         <tr>
           <th>Local</th>
@@ -65,7 +65,7 @@
           <th>Fecha</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody ></tbody>
     </table>
   </section>
 <!-- Fin reservaciones -->
@@ -78,6 +78,5 @@
   <script src="./Script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
-  <button onclick="Inicio()">Click Aquí</button>
 </body>
 </html>
