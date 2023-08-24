@@ -56,24 +56,6 @@ guardarUsuario.addEventListener("click", function () {
 })
 
 
-//Tus reservaciones
-// const tablaReservaciones = document.getElementById("tablaReservaciones").getElementsByTagName('tbody')[0];
-// console.log(usuarioGuardado)
-
-// reservacionesUsuario.forEach(function (cliente) {
-//   const fila = tablaReservaciones.insertRow();
-//   const celdaLocal = fila.insertCell(0);
-//   const celdaLugar = fila.insertCell(1);
-//   const celdaCantidad = fila.insertCell(2);
-//   const celdaFecha = fila.insertCell(3);
-
-//   celdaLocal.textContent = cliente.local;
-//   celdaLugar.textContent = cliente.lugar;
-//   celdaCantidad.textContent = cliente.cantidad;
-//   celdaFecha.textContent = cliente.fecha;
-// });
-
-
 function agregarReservaciones(usuarioGuardado){
 
 
@@ -180,7 +162,7 @@ const recetario = async()=> {
   .then((data)=>{
     const receta = {
       label:data.recipe.label,
-      images:data.recipe.images.REGULAR,
+      images:data.recipe.images.REGULAR.url,
       recipe:data.recipe.ingredientLines,
       link:data.recipe.url,
 
@@ -194,7 +176,7 @@ const recetario = async()=> {
   .then((data)=>{
     const receta = {
       label:data.recipe.label,
-      images:data.recipe.images.REGULAR,
+      images:data.recipe.images.REGULAR.url,
       recipe:data.recipe.ingredientLines,
       link:data.recipe.url,
     }
@@ -206,7 +188,7 @@ const recetario = async()=> {
   .then((data)=>{
     const receta = {
       label:data.recipe.label,
-      images:data.recipe.images.REGULAR,
+      images:data.recipe.images.REGULAR.url,
       recipe:data.recipe.ingredientLines,
       link:data.recipe.url,
     }
@@ -217,7 +199,7 @@ const recetario = async()=> {
   .then((data)=>{
     const receta = {
       label:data.recipe.label,
-      images:data.recipe.images.REGULAR,
+      images:data.recipe.images.REGULAR.url,
       recipe:data.recipe.ingredientLines,
       link:data.recipe.url,
     }
@@ -228,7 +210,7 @@ const recetario = async()=> {
   .then((data)=>{
     const receta = {
       label:data.recipe.label,
-      images:data.recipe.images.REGULAR,
+      images:data.recipe.images.REGULAR.url,
       recipe:data.recipe.ingredientLines,
       link:data.recipe.url,
     }
@@ -240,10 +222,11 @@ const recetario = async()=> {
   .then((data)=>{
     const receta = {
       label:data.recipe.label,
-      images:data.recipe.images.REGULAR,
+      images:data.recipe.images.REGULAR.url,
       recipe:data.recipe.ingredientLines,
       link:data.recipe.url,
     }
+    console.log(receta)
     return receta
   })
 
@@ -252,12 +235,45 @@ const recetario = async()=> {
   const lista = document.getElementById("lista");
   array.forEach((post) => {
     const li = document.createElement('li')
+    const img = document.createElement('img')
+    let recetas= post.recipe
+    console.log(recetas)
     li.innerHTML = `
-        <h4>${post.label}</h4>
-        
+        <p>${post.label}
+        <br>
+        <img src="${post.images}"/>
+        </p>
+        <button class="mostrarRecetaBtn" data-link="${post.link}" onclick="mostrarReceta(event)">Mostrar Receta</button>
+        <button class="verIngredientes" onclick="mostrarIngredientes('${recetas}')">Ver Ingredientes</button>
+       
     `
     lista.append(li)
 })
+//<button class="verIngredientes" onclick="mostrarIngredientes(event)>Ver Ingredientes</button>
 }
 
+function mostrarIngredientes(event){
+  console.log(event.split(','))
+  function separar(){
+    let string=""
+    let ingredientes =event.split(',')
+    for(const ingrediente of ingredientes){
+      string=string+`<p>${ingrediente}</p> <br/>`
+    }
+    return string
+  }
+  Swal.fire({
+    icon: 'info',
+    title: 'receta',
+    html: separar()
+})}
+
+function mostrarReceta(event) {
+  const btn = event.currentTarget;
+  const link = btn.getAttribute("data-link");
+
+  window.open(link, '_blank');
+
+}
 recetario()
+
