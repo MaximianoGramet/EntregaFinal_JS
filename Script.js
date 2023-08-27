@@ -81,6 +81,15 @@ function agregarReservaciones(usuarioGuardado){
 }
 
 //Nueva reservacion 
+
+function Vacio(){
+  document.getElementById("cantidad").value="";
+  document.getElementById("fecha").value="";
+  document.getElementById("celiaco").value="";
+}
+
+
+
 nuevaReservacionBtn.addEventListener("click", function() {
   nueva_reservacion.style.display = "block";});
  console.log(usuarioGuardado+" save");
@@ -91,54 +100,77 @@ nuevaReservacionBtn.addEventListener("click", function() {
   const preferencia = document.getElementById("preferencia").value;
   const fecha = document.getElementById("fecha").value;
   const celiaco = document.getElementById("celiaco").value;
-
-  let multiplicador = 0;
-    //multiplicador
-    if(document.getElementById("preferencia").value==1){
-      multiplicador = 200 + 5 * cantidad;
-    } else if (preferencia == 2) {
-      multiplicador = 200 + 5 * (cantidad * 0.9);
-    } else if (preferencia == 3) {
-      multiplicador = 200 + 5 * (cantidad * 1.2);
-    } else if (preferencia == 4) {
-      multiplicador = 200 + 5 * (cantidad * 0.75);
-    }
-
-
-    const nuevaReserva = {
+ console.log("celiaco= "+celiaco)
+  let menuceliaco = celiaco;
+  console.log("menuceliaco= "+celiaco)
+  const nuevaReserva = {
     id: 0, // Momentáneo
     lugar: preferencia,
     cantidad: cantidad,
     Nombre: usuarioGuardado,
-    multiplicador: multiplicador,
+    multiplicar: 0,
     fecha: fecha,
-    local: local
+    local: local,
+    celiaquia: menuceliaco
     };
-
-    const reservacionesExistentes = JSON.parse(localStorage.getItem("reservaciones")) || [];
-    reservacionesExistentes.push(nuevaReserva);
-    localStorage.setItem("reservaciones", JSON.stringify(reservacionesExistentes));
+    console.log("celiaquia= "+celiaco)
+  let multiplicador = 0;
+    //multiplicador
+   if(cantidad!="" && cantidad<=8 && cantidad>=1){
+    // if(celiaquia=="si"|| celiaquia=="no"){ 
+      // *TODO: hay que arreglar el error de celiaquia es Undefined
+      
+      if(document.getElementById("preferencia").value==1){
+        multiplicador = 200 + 5 * cantidad;
+      } else if (preferencia == 2) {
+        multiplicador = 200 + 5 * (cantidad * 0.9);
+      } else if (preferencia == 3) {
+        multiplicador = 200 + 5 * (cantidad * 1.2);
+      } else if (preferencia == 4) {
+        multiplicador = 200 + 5 * (cantidad * 0.75);
+      }
+  
+      nuevaReserva.multiplicar=multiplicador;
+  
+      const reservacionesExistentes = JSON.parse(localStorage.getItem("reservaciones")) || [];
+      reservacionesExistentes.push(nuevaReserva);
+      localStorage.setItem("reservaciones", JSON.stringify(reservacionesExistentes));
+      
+      while (tablaReservaciones.firstChild) {
+        tablaReservaciones.removeChild(tablaReservaciones.firstChild);
+      }
+  
+      const reservacionesUsuario = reservacionesExistentes.filter((cliente) => cliente.Nombre === usuarioGuardado);
+    reservacionesUsuario.forEach(function (cliente) {
+      const fila = tablaReservaciones.insertRow();
+      const celdaLocal = fila.insertCell(0);
+      const celdaLugar = fila.insertCell(1);
+      const celdaCantidad = fila.insertCell(2);
+      const celdaFecha = fila.insertCell(3);
+  
+      celdaLocal.textContent = cliente.local;
+      celdaLugar.textContent = cliente.lugar;
+      celdaCantidad.textContent = cliente.cantidad;
+      celdaFecha.textContent = cliente.fecha;
+    });
+  // }else{
+  //   Toastify({
+  //     text: "Menú celiaco:\n seleccione claramente si/no",
+  //     className: "info",
+  //   }).showToast();
+  //}
+  
     
-    while (tablaReservaciones.firstChild) {
-      tablaReservaciones.removeChild(tablaReservaciones.firstChild);
-    }
+    Vacio();
 
-    const reservacionesUsuario = reservacionesExistentes.filter((cliente) => cliente.Nombre === usuarioGuardado);
-  reservacionesUsuario.forEach(function (cliente) {
-    const fila = tablaReservaciones.insertRow();
-    const celdaLocal = fila.insertCell(0);
-    const celdaLugar = fila.insertCell(1);
-    const celdaCantidad = fila.insertCell(2);
-    const celdaFecha = fila.insertCell(3);
-
-    celdaLocal.textContent = cliente.local;
-    celdaLugar.textContent = cliente.lugar;
-    celdaCantidad.textContent = cliente.cantidad;
-    celdaFecha.textContent = cliente.fecha;
-  });
-    
     nueva_reservacion.style.display = "none";
-  });
+   } else{
+    Toastify({
+      text: "La cantidad de personas no puede ser mayor a 8 o estar vacio",
+      className: "info",
+    }).showToast();
+   }
+});
 
  function desplegarTabla(Username){
   reservacionesUsuario = Clientes.filter((cliente)=>cliente.Nombre === Username);
@@ -226,7 +258,7 @@ const recetario = async()=> {
       recipe:data.recipe.ingredientLines,
       link:data.recipe.url,
     }
-    console.log(receta)
+    //console.log(receta)
     return receta
   })
 
@@ -237,7 +269,7 @@ const recetario = async()=> {
     const li = document.createElement('li')
     const img = document.createElement('img')
     let recetas= post.recipe
-    console.log(recetas)
+    //console.log(recetas)
     li.innerHTML = `
         <p>${post.label}
         <br>
@@ -253,7 +285,7 @@ const recetario = async()=> {
 }
 
 function mostrarIngredientes(event){
-  console.log(event.split(','))
+  //console.log(event.split(','))
   function separar(){
     let string=""
     let ingredientes =event.split(',')
