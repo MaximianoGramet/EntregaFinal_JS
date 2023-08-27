@@ -1,4 +1,7 @@
 //login
+
+
+
 const Clientes = JSON.parse(localStorage.getItem("reservaciones"));
 
 let usuarioGuardado = localStorage.getItem("Usuario");
@@ -11,7 +14,11 @@ const nuevaReservacionBtn = document.getElementById("nuevaReservacionBtn");
 const nueva_reservacion = document.getElementById("nueva_reservacion");
 const crearReservacionBtn = document.getElementById("crearReservacionBtn");
 let reservacionesUsuario;
-if(usuarioGuardado!=""){
+
+console.log(usuarioGuardado)
+
+
+if(usuarioGuardado!=null){
   reservacionesUsuario = Clientes.filter((cliente)=>cliente.Nombre === usuarioGuardado);
   for(const reservacion of reservacionesUsuario){
     tablaReservaciones.innerHTML+=` 
@@ -58,8 +65,6 @@ guardarUsuario.addEventListener("click", function () {
 
 function agregarReservaciones(usuarioGuardado){
 
-
-  
   console.log(usuarioGuardado)
   carrito.push(producto);
   tablaCarrito.innerHTML +=`
