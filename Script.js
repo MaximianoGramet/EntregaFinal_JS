@@ -100,6 +100,7 @@ nuevaReservacionBtn.addEventListener("click", function() {
   const preferencia = document.getElementById("preferencia").value;
   const fecha = document.getElementById("fecha").value;
   const celiaco = document.getElementById("celiaco").value;
+
  console.log("celiaco= "+celiaco)
   let menuceliaco = celiaco;
   console.log("menuceliaco= "+celiaco)
